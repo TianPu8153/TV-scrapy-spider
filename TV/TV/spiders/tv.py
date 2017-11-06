@@ -13,6 +13,6 @@ class TvSpider(scrapy.Spider):
         item['title']=response.xpath('//h1/text()').extract_first()
         item['url']=response.url
 
-        item['start']=response.xpath('//div[@class="o_r_contact"]/ul/li')[0].xpath('//font/text()')[0].extract()
-        item['end']=response.xpath('//div[@class="o_r_contact"]/ul/li')[0].xpath('//font/text()')[1].extract()
+        item['start']=response.xpath('//li[1]/font[1]/text()').extract()
+        item['end']=response.xpath('//font[2]/text()').extract()
         yield item
